@@ -10,7 +10,7 @@ word = random.choice(word_list)
 
 print(word)
 
-guess = str(input("Enter a single letter."))
+guess = str(input("Enter a single letter: "))
 
 def check_valid_input():
     if len(guess) == 1 and guess.isalpha():
@@ -19,3 +19,4 @@ def check_valid_input():
         print("Oops! That is not a valid input.")
 
 check_valid_input()
+
