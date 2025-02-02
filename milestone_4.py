@@ -1,6 +1,8 @@
-'''This is a docstring'''
+#'''This is a docstring'''
 # This is milestone 3
 import random
+
+from milestone_3 import ask_for_input
 word_list = ['apple', 'watermelon', 'cherry', 'peach', 'blueberry']
 
 class Hangman:
@@ -27,15 +29,19 @@ class Hangman:
 
         pass
 
-    def check_guess(guess):
+    def check_guess(self, guess):
         guess_lowercase = guess.lower()
         if guess_lowercase in self.word:
             print(f"Good guess! {guess_lowercase} is in the word.")
+            for letter in self.word:
+                if letter == guess_lowercase:
+                    index_of_letter = self.word.index(letter) 
+
         else:
             print(f"Sorry, {guess} is not in the word. Please try again.")
             
     
-    def ask_for_input():
+    def ask_for_input(self):
 
         while True:
             guess = str(input("Enter a letter: "))
@@ -44,6 +50,10 @@ class Hangman:
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
-                check_guess(guess)
+                self.check_guess(guess)
                 self.list_of_guesses.append(guess)                
             break
+
+game = Hangman(word_list)
+
+game.ask_for_input()
