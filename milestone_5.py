@@ -1,18 +1,19 @@
-#'''This is a docstring'''
-# This is milestone 3
+# This is milestone 5
 import random
 
+#Copy all the codes in milestone_4.py file into the newly created milestone_5.py file.
+#Not sure why this is necessary should just import milestone_4 file?
+
 from milestone_3 import ask_for_input
-word_list = ['apple', 'watermelon', 'cherry', 'peach', 'blueberry']
+word_list = ['apple', 'lemon', 'melon', 'peach', 'fruit']
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
         # word_list: list - A list of words
         self.word_list = word_list
         # num_lives: int - The number of lives the player has at the start of the game.
-        self.num_lives = num_lives
-        # word: The word to be guessed, picked randomly from the word_list. Remember to import the random module into your script
-        self.word = random.choice(word_list)
+        self.num_lives = num_lives #word: The word to be guessed, picked randomly from the word_list. Remember to import the random module into your script
+        self.word = random.choice(word_list) 
         # word_guessed: list - A list of the letters of the word, with _ for each letter not yet guessed. 
         # For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']. 
         # If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
@@ -48,6 +49,21 @@ class Hangman:
                 self.list_of_guesses.append(guess)                
             break
 
-game = Hangman(word_list)
 
-game.ask_for_input()
+# game.ask_for_input()
+
+def play_game(word_list):
+    num_lives = 5
+    self.game = Hangman(word_list, num_lives)
+    while True:
+    # Check if the num_lives is 0. If it is, that means the game has ended and the user lost. Print a message saying 'You lost!'
+        if num_lives == 0:
+            print("You lost!")    
+    # Next, check if the num_letters is greater than 0. In this case, you would want to continue the game, so you need to call the ask_for_input method.
+        elif num_letters > 0:
+            ask_for_input()
+    # If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. Print a message saying 'Congratulations. You won the game!'
+        if num_lives != 0 and num_letters < 1:
+            print("Congratulations. You won the game!")
+
+play_game(word_list)
