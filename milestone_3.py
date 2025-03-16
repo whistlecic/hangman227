@@ -1,9 +1,6 @@
 import random
-# This is milestone 3
 
 word_list = ['apple', 'watermelon', 'cherry', 'peach', 'blueberry']
-
-# print(word_list)
 
 word = random.choice(word_list)
 

@@ -5,23 +5,16 @@ import random
 #Not sure why this is necessary should just import milestone_4 file?
 
 from milestone_3 import ask_for_input
-word_list = ['apple', 'lemon', 'melon', 'peach', 'fruit']
+word_list =  ['apple', 'watermelon', 'cherry', 'peach', 'blueberry']
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
-        # word_list: list - A list of words
-        self.word_list = word_list
-        # num_lives: int - The number of lives the player has at the start of the game.
-        self.num_lives = num_lives #word: The word to be guessed, picked randomly from the word_list. Remember to import the random module into your script
-        self.word = random.choice(word_list) 
-        # word_guessed: list - A list of the letters of the word, with _ for each letter not yet guessed. 
-        # For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']. 
-        # If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
-        self.word_guessed = ['_' for _ in self.word]
-        # num_letters: int - The number of UNIQUE letters in the word that have not been guessed yet
-        self.num_letters = len(set(self.word))
-        # list_of_guesses: list - A list of the guesses that have already been tried. Set this to an empty list initially
-        self.list_of_guesses = []
+        self.word_list = word_list #The list of words from which the answer is selected
+        self.num_lives = num_lives #Number of lives at the start of the game
+        self.word = random.choice(word_list) #The answer, randomly selected from word_list
+        self.word_guessed = ['_' for _ in self.word] #List of blank letters representing the answer
+        self.num_letters = len(set(self.word)) #The number of unique letters in the word that haven't been guessed
+        self.list_of_guesses = [] #List of guesses that have already been tried
         pass
 
     def check_guess(self, guess):
@@ -30,14 +23,13 @@ class Hangman:
             print(f"Good guess! {guess_lowercase} is in the word.")
             for letter in self.word:
                 if letter == guess_lowercase:
-                    index_of_letter = self.word.index(letter) 
-
+                    index_of_letter = self.word.index(letter) #We don't need to 
         else:
             print(f"Sorry, {guess} is not in the word. Please try again.")
             
     
     def ask_for_input(self):
-
+        #
         while True:
             guess = str(input("Enter a letter: "))
             if len(guess) != 1 or guess.isalpha() == False:
@@ -50,20 +42,17 @@ class Hangman:
             break
 
 
-# game.ask_for_input()
+game.ask_for_input()
 
 def play_game(word_list):
     num_lives = 5
-    self.game = Hangman(word_list, num_lives)
+    game = Hangman(word_list, num_lives)
     while True:
-    # Check if the num_lives is 0. If it is, that means the game has ended and the user lost. Print a message saying 'You lost!'
-        if num_lives == 0:
+        if num_lives == 0:  #If num_lives is zero then game has been lost
             print("You lost!")    
-    # Next, check if the num_letters is greater than 0. In this case, you would want to continue the game, so you need to call the ask_for_input method.
-        elif num_letters > 0:
+        elif self.num_letters > 0: #Checks if there are letters left in the game to play
             ask_for_input()
-    # If the num_lives is not 0 and the num_letters is not greater than 0, that means the user has won the game. Print a message saying 'Congratulations. You won the game!'
-        if num_lives != 0 and num_letters < 1:
+        if num_lives != 0 and num_letters < 1: #Checks there's more than 0 lives left and all the letters have been guessed
             print("Congratulations. You won the game!")
 
 play_game(word_list)
