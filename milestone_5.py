@@ -42,7 +42,7 @@ class Hangman:
             break
 
 
-game.ask_for_input()
+# game.ask_for_input()
 
 def play_game(word_list):
     num_lives = 5
@@ -55,4 +55,7 @@ def play_game(word_list):
         if num_lives != 0 and num_letters < 1: #Checks there's more than 0 lives left and all the letters have been guessed
             print("Congratulations. You won the game!")
 
-play_game(word_list)
+# play_game(word_list)
+
+game.ask_for_input()
+
