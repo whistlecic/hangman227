@@ -1,4 +1,6 @@
 # This is milestone 5
+#Add another comment
+
 import random
 
 word_list =  ['apple', 'peach', 'grape', 'melon', 'blueberry']
