@@ -1,42 +1,35 @@
 #'''This is a docstring'''
-# This is milestone 3
+
 import random
 
-from milestone_3 import ask_for_input
-word_list = ['apple', 'watermelon', 'cherry', 'peach', 'blueberry']
+word_list =  ['apple', 'peach', 'grape', 'melon', 'blueberry']
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
-        # word_list: list - A list of words
-        self.word_list = word_list
-        # num_lives: int - The number of lives the player has at the start of the game.
-        self.num_lives = num_lives
-        # word: The word to be guessed, picked randomly from the word_list. Remember to import the random module into your script
-        self.word = random.choice(word_list)
-        # word_guessed: list - A list of the letters of the word, with _ for each letter not yet guessed. 
-        # For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']. 
-        # If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
-        self.word_guessed = ['_' for _ in self.word]
-        # num_letters: int - The number of UNIQUE letters in the word that have not been guessed yet
-        self.num_letters = len(set(self.word))
-        # list_of_guesses: list - A list of the guesses that have already been tried. Set this to an empty list initially
-        self.list_of_guesses = []
-        pass
+        self.word = random.choice(word_list) #The word the user needs to guess, picked at random from word_list.
+        self.word_guessed = ['_' for _ in self.word] #A list of the letters in the answer word, with _ representing each unguessed letter.
+        self.num_letters = len(set(self.word)) #The number of UNIQUE letters in the answer word that have not been guessed yet
+        self.num_lives = num_lives #Number of lives the player gets, defaulted to 5.
+        self.word_list = word_list #The list of words from which the game selects one to be the answer.
+        self.list_of_guesses = [] #List holding all the user's guesses, for each game this is initially an empty list.
+        # pass
 
     def check_guess(self, guess):
         guess_lowercase = guess.lower()
         if guess_lowercase in self.word:
             print(f"Good guess! {guess_lowercase} is in the word.")
-            for letter in self.word:
+            for index, letter in enumerate(self.word): #Gets index of the guessed letter in the answer if it is in the answer word.
                 if letter == guess_lowercase:
-                    index_of_letter = self.word.index(letter) 
-
+                    self.word_guessed[index] = guess #Replace _ with the guessed letter at the matching index/indices.
+            self.num_letters -= 1
+            print(self.word_guessed)
         else:
-            print(f"Sorry, {guess} is not in the word. Please try again.")
+            self.num_letters -= 1
+            print(f"Sorry, Cicely {guess} is not in the word. Please try again.")
+            print(f"You have {self.num_lives} lives left.")
             
     
     def ask_for_input(self):
-
         while True:
             guess = str(input("Enter a letter: "))
             if len(guess) != 1 or guess.isalpha() == False:
@@ -46,7 +39,6 @@ class Hangman:
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)                
-            break
 
 game = Hangman(word_list)
 

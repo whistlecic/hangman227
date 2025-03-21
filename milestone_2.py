@@ -2,7 +2,7 @@ import random
 # This is a comment
 '''This is a Docstring'''
 
-word_list = ['apple', 'watermelon', 'cherry', 'peach', 'blueberry']
+word_list = ['apple', 'melon', 'orange', 'peach', 'cherry']
 
 word = random.choice(word_list)
 
