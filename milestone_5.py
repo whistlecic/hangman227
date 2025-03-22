@@ -1,5 +1,4 @@
-# This is milestone 5
-#modification
+#This is a DOCSTRING
 
 import random
 
@@ -13,7 +12,6 @@ class Hangman:
         self.num_lives = num_lives #Number of lives the player gets, defaulted to 5.
         self.word_list = word_list #The list of words from which the game selects one to be the answer.
         self.list_of_guesses = [] #List holding all the user's guesses, for each game this is initially an empty list.
-        # pass
 
     def check_guess(self, guess):
         guess_lowercase = guess.lower()
@@ -23,12 +21,18 @@ class Hangman:
                 if letter == guess_lowercase:
                     self.word_guessed[index] = guess #Replace _ with the guessed letter at the matching index/indices.
             self.num_letters -= 1
-            print(self.word_guessed)
-            print(f'There are {self.num_letters} unique letters left and you have {self.num_lives} lives left.')
+            self.answer_string = ' '.join(self.word_guessed)
+            print(f"You have guessed: {self.answer_string}")
+            # print(f'You have {self.num_lives} lives left.')
         else:
             self.num_lives -= 1
-            print(f"Sorry, Cicely {guess} is not in the word. Please try again.")
-            print(f"There are {self.num_letters} unique letters left and you have {self.num_lives} lives left.")
+            print(f"Sorry, '{guess}' is not in the word. Please try again.")
+            print(f"You have {self.num_lives} lives left.")
+            # if self.num_lives > 1:
+            #     print(f"(You have {self.num_lives} lives left.")
+            # elif self.num_lives == 1:
+            #     print(f"(You have {self.num_lives} live left.")
+
             
     
     def ask_for_input(self):
@@ -45,7 +49,6 @@ class Hangman:
                 self.list_of_guesses.append(guess)    
                 break    
 
-
 def play_game(word_list):
     num_lives = 5
     game = Hangman(word_list, num_lives)
@@ -58,7 +61,5 @@ def play_game(word_list):
             break
         else: 
             Hangman.ask_for_input(game)
-        
-    # game.ask_for_input()
 
 play_game(word_list)
