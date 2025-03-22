@@ -25,7 +25,7 @@ class Hangman:
                     self.word_guessed[index] = guess #Replace _ with the guessed letter at the matching index/indices.
             self.num_letters -= 1
             self.word_guessed_progress = ' '.join(self.word_guessed)
-            print(f"You have guessed: {self.word_guessed_progress}")
+            print(f"You have guessed: {self.word_guessed_progress}") #Displays to user where the correctly guessed letter is positioned in the answer.
         else:
             self.num_lives -= 1
             print(f"Sorry, '{guess}' is not in the word. Please try again.")
