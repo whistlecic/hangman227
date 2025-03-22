@@ -26,7 +26,6 @@ class Hangman:
             self.num_letters -= 1
             self.word_guessed_progress = ' '.join(self.word_guessed)
             print(f"You have guessed: {self.word_guessed_progress}")
-            # print(f'You have {self.num_lives} lives left.')
         else:
             self.num_lives -= 1
             print(f"Sorry, '{guess}' is not in the word. Please try again.")
