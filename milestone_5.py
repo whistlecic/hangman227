@@ -13,8 +13,7 @@ class Hangman:
         self.word_list = word_list #The list of words from which the game selects one to be the answer.
         self.list_of_guesses = [] #List holding all the user's guesses, for each game this is initially an empty list.
         self.length_of_word = len(self.word) #Additional init attribute defined to display the empty word to be guessed to the user.
-        print(f'Your Hangman word to guess has {self.length_of_word} letters:')
-        print(' '.join(self.word_guessed))
+        print(f'Your Hangman word to guess has {self.length_of_word} letters. You have {self.num_lives} lives. Good luck!')
 
     def check_guess(self, guess):
         guess_lowercase = guess.lower()
