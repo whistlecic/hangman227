@@ -14,8 +14,8 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 
 ## Installation instructions
 Requires an integrated terminal or other system capable of running .py file and accessing standard Python methods such as .random.
-VS Code latest version
-Miniconda latest version
+VS Code
+Miniconda3
 
 ## Usage instructions
 Click Run in VS Code.
